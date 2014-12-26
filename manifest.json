@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "description": "Motivate you to make the most out of your day!",
   "chrome_url_overrides": {
-    "newtab": "motivate.html"
+    "newtab": "index.html"
   },
   "permissions": [
     "storage"
