@@ -2,38 +2,68 @@
 var year = 31558464000, // Milliseconds in a year
     day = 86400000, // Milliseconds in a day
     hour = 3600000, // Milliseconds in an hour
-    ageElement = document.getElementById("age"), // Grab age element
-    hoursLeftTodayElement = document.getElementById("hoursLeftToday"), // Grab hoursLeftToday element
-    daysLeftThisMonth = document.getElementById("daysLeftThisMonth"), // Grab daysLeftThisMonth element
-    daysLeftThisYear = document.getElementById("daysLeftThisYear"), // Grab daysLeftThisYear element
-    githubRepos = document.getElementById("githubRepos"), // Grab githubRepos element
-    quoteText = document.getElementById("quoteText"), // Grab quoteText element
-    quoteAuthor = document.getElementById("quoteAuthor"), // Grab quoteAuthor element
-    nameElement = document.getElementById("name"); // Grab nameElement element
+    ageElement = document.getElementById("age"),
+    hoursLeftTodayElement = document.getElementById("hoursLeftToday"),
+    daysLeftThisMonth = document.getElementById("daysLeftThisMonth"),
+    daysLeftThisYear = document.getElementById("daysLeftThisYear"),
+    githubRepos = document.getElementById("githubRepos"),
+    quoteText = document.getElementById("quoteText"),
+    quoteAuthor = document.getElementById("quoteAuthor"),
+    nameElement = document.getElementById("name"),
+    currentDateElement = document.getElementById("currentDate"),
+    currentTimeElement = document.getElementById("currentTime"),
+    yearsToLive = document.getElementById("yearsToLive");
 
+// Current date
+function currentDate(nowNew){
+  var amOrPm = ' am',
+  hours = nowNew.getHours();
+  if(nowNew.getHours() >= 13){
+    amOrPm = ' pm';
+    hours = nowNew.getHours() - 12;
+  }
+  return hours + ":" + ("0" + nowNew.getMinutes()).slice(-2) + ":" + ("0" + nowNew.getSeconds()).slice(-2) + amOrPm;
+}
+
+// Current day
+function currentDay(nowNew) {
+  var monthNames = ["January", "February", "March",
+  "April", "May", "June", "July", "August", "September",
+  "October", "November", "December"],
+  dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  currentDay = nowNew.getDay(),
+  currentDate = nowNew.getDate(),
+  currentMonth = nowNew.getMonth(),
+  currentYear = nowNew.getFullYear();
+  return dayNames[currentDay] + ', ' + currentDate + " " + monthNames[currentMonth]
+  + " " + currentYear;
+}
 
 // Calculate age
 function calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now) {
   var myAge = now - (new Date(yearOfBirth, monthOfBirth, dayOfBirth));
-  return (myAge / year).toString().substring(0, 14);
+  return (myAge / year).toString().substring(0, 11);
 }
 
+function calculateLifeExpectancy(age) {
+  return (71 - age).toString().substring(0, 11); // Life expectancy at birth (71.0 years world average) - http://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
+}
 // Calculate hours left today
 function hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew) {
   var timeLeftToday = (new Date(nowNew.getFullYear(), nowNew.getMonth(), nowNew.getDate(), sleepingTimeHours + 12, sleepingTimeMinutes)).getTime() - nowNew.getTime();
-  return (timeLeftToday / hour).toString().substring(0, 8);
+  return (timeLeftToday / hour).toString().substring(0, 6);
 }
 
 // Calculate days left this month
 function daysLeftThisMonthFunc(nowNew) {
   var timeLeftThisMonth = (new Date(nowNew.getFullYear(), nowNew.getMonth() + 1, 0)) - nowNew.getTime();
-  return (timeLeftThisMonth / day).toString().substring(0, 8);
+  return (timeLeftThisMonth / day).toString().substring(0, 6);
 }
 
 // Calculate days left this year
 function daysLeftThisYearFunc(nowNew) {
   var timeLeftThisYear = (new Date(nowNew.getFullYear() + 1, 0, 0).getTime()) - nowNew.getTime();
-  return (timeLeftThisYear / day).toString().substring(0, 8);
+  return (timeLeftThisYear / day).toString().substring(0, 6);
 }
 
 // Get total GitHub repos
@@ -82,11 +112,14 @@ if(nickName.length >= 1) {
 setInterval(function getStuff(){
   var now = Date.now(),
   nowNew = new Date;
-
-  ageElement.innerHTML = calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now);
+  var age = calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now);
+  ageElement.innerHTML = age;
   hoursLeftTodayElement.innerHTML = hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew);
   daysLeftThisMonth.innerHTML = daysLeftThisMonthFunc(nowNew);
   daysLeftThisYear.innerHTML = daysLeftThisYearFunc(nowNew);
+  currentDateElement.innerHTML = currentDay(nowNew);
+  currentTimeElement.innerHTML = currentDate(nowNew);
+  yearsToLive.innerHTML = calculateLifeExpectancy(age);
 }, 100);
 
 if(githubUsername.length >= 2) {

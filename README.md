@@ -1,6 +1,6 @@
 ## Motivation
 
-A simple Google Chrome Extention that replaces the "New Tab" page with some motivating facts about yourself and a random motivational quote.
+A simple Google Chrome Extension that replaces the "New Tab" page. Note that the life expectancy is not accurate, but it reminds me that time is actually being used up.
 [View it live](http://joshuaraichur.com/motivation) on my website.
 
 ### Setup:

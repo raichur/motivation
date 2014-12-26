@@ -31,15 +31,49 @@
   animation-name: fadeIn;
 }
 
+
 // Basic
 *{
   margin: 0;
   padding: 0;
 }
 body {
-  margin: 0;
-  padding: 0;
   font-family: Avenir;
   background: #1d1d1d;
   color: #f9f9f9;
+  max-height: 100%;
+}
+.content {
+  width: 600px;
+  margin: 0 auto;
+}
+.content h1 {
+  font-size: 4rem;
+  line-height: 4.2rem;
+  margin-bottom: 10px;
+}
+
+// Div styling
+.dateTimeWrapper #currentTime {
+  font-size: 23rem;
+}
+.dateTimeWrapper #currentDate {
+  font-size: 1.5rem;
+}
+.quote {
+  margin: 0;
+  margin-top: 30px;
+}
+.quote p {
+  margin: 0;
+}
+.quote p:first-child {
+  font-size: 1rem;
+  font-style: italic;
+}
+.dynamicText {
+  font-size: 2rem;
+}
+.dynamicText span {
+  font-weight: 600;
 }
