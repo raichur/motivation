@@ -1,12 +1,3 @@
-// YOU NEED TO CHANGE THIS (If you are not Joshua Raichur) //
-var sleepingTimeHours = 9, // Sleeping time in hours. In my case I sleep at 9:30pm, so I entered 9
-    sleepingTimeMinutes = 30, // Sleeping time remaining in minutes. In my case I sleep at 9:30pm, so I entered 30
-    yearOfBirth = 1997, // Year of birth
-    monthOfBirth = 8, // Month of birth
-    dayOfBirth = 31, // Day of birth
-    githubUsername = 'raichur', // GitHub Username (put '' if you don't want to show your daily GitHub commits and total number of repos)
-    nickName = 'Josh'; // Your nickname for a personalized greeting
-
 // Define variables
 var year = 31558464000, // Milliseconds in a year
     day = 86400000, // Milliseconds in a day
