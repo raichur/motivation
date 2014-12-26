@@ -42,16 +42,23 @@ function currentDay(nowNew) {
 // Calculate age
 function calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now) {
   var myAge = now - (new Date(yearOfBirth, monthOfBirth, dayOfBirth));
-  return (myAge / year).toString().substring(0, 11);
+  var ageString = (myAge / year).toString().substring(0, 11);
+  ageString = ageString < 0 ? 0 : ageString;
+  return ageString;
 }
 
 function calculateLifeExpectancy(age) {
-  return (71 - age).toString().substring(0, 11); // Life expectancy at birth (71.0 years world average) - http://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
+  var expectancy = (71 - age).toString().substring(0, 11); // Life expectancy at birth (71.0 years world average) - http://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
+  expectancy = expectancy < 0 ? 0 : expectancy;
+  return expectancy;
 }
+
 // Calculate hours left today
 function hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew) {
   var timeLeftToday = (new Date(nowNew.getFullYear(), nowNew.getMonth(), nowNew.getDate(), sleepingTimeHours + 12, sleepingTimeMinutes)).getTime() - nowNew.getTime();
-  return (timeLeftToday / hour).toString().substring(0, 6);
+  var timeLeftString = (timeLeftToday / hour).toString().substring(0, 6);
+  timeLeftString = timeLeftString < 0 ? 0 : timeLeftString;
+  return timeLeftString;
 }
 
 // Calculate days left this month
@@ -70,7 +77,7 @@ function daysLeftThisYearFunc(nowNew) {
 function getRepoCount(githubUsername) {
   function printRepoCount() {
     var responseObj = JSON.parse(this.responseText);
-    githubRepos.innerHTML = responseObj.public_repos + " repos";
+    githubRepos.innerHTML = "You have <span>" + responseObj.public_repos + " repos</span> on GitHub.";
   }
   var request = new XMLHttpRequest();
   request.onload = printRepoCount;

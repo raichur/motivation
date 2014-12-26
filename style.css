@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700);
+
 // Animations
 .animated {
   -webkit-animation-duration: .65s;
@@ -33,47 +35,63 @@
 
 
 // Basic
+
+html, body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 *{
   margin: 0;
   padding: 0;
 }
 body {
-  font-family: Avenir;
+  font-family: Avenir, Open Sans;
   background: #1d1d1d;
   color: #f9f9f9;
   max-height: 100%;
 }
 .content {
-  width: 600px;
   margin: 0 auto;
+  text-align: left;
+  width: 800px;
+  margin-top: 60px;
 }
 .content h1 {
   font-size: 4rem;
   line-height: 4.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  color: #70bee0;
 }
 
 // Div styling
-.dateTimeWrapper #currentTime {
-  font-size: 23rem;
+#currentTime {
+  font-size: 3rem;
 }
-.dateTimeWrapper #currentDate {
-  font-size: 1.5rem;
+#currentDate {
+  font-size: 1.7rem;
+  margin-bottom: 40px;
 }
 .quote {
   margin: 0;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .quote p {
   margin: 0;
 }
 .quote p:first-child {
-  font-size: 1rem;
+  font-size: 1.8rem;
   font-style: italic;
+}
+.quote p:nth-child(2) {
+  font-size: 1.3rem;
+  font-weight: 500;
+
 }
 .dynamicText {
   font-size: 2rem;
 }
 .dynamicText span {
   font-weight: 600;
+  color: #70bee0;
 }
