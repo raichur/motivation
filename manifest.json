@@ -1,0 +1,12 @@
+{
+  "name": "Motivation",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "description": "Motivate you to make the most out of your day!",
+  "chrome_url_overrides": {
+    "newtab": "motivate.html"
+  },
+  "permissions": [
+    "storage"
+  ]
+}
