@@ -6,6 +6,20 @@
   </head>
 
   <body class="animated fadeIn">
+      <div id="settings">
+        <form name="settingsForm">
+            <input type="text" id="nickName" placeholder="First/Nick name">
+            <input type="number" id="sleepingTimeHour" placeholder="Sleeping time (hour)" min="1" max="12" maxlength="2">
+            <input type="number" id="sleepingTimeMinutes" placeholder="Sleeping time (minutes)" min="1" max="59" maxlength="2">
+            <input type="number" id="yearOfBirth" placeholder="Year of birth" maxlength="4">
+            <input type="number" id="monthOfBirth" placeholder="Month of birth" maxlength="2" min="1" max="12">
+            <input type="number" id="dayOfBirth" placeholder="Day of birth" maxlength="2" min="1" max="31">
+            <input type="text" id="githubUsername" placeholder="GitHub username">
+            <input type="submit" value="Submit">
+        </form>
+      </div>
+
+      <a href="javascript:void(0)" id="changeSettings" onclick="showHideSettings();">Settings</a>
 
       <div class="content">
 
@@ -17,11 +31,11 @@
         </div>
 
         <div class="dynamicText">
-          <div>You are <span id="age"></span> <span>years</span> old</div>
-          <div>You have <span id="yearsToLive"></span> <span>years</span> to live</div>
-          <div>There are <span id="hoursLeftToday"></span> <span>waking hours</span> left today</div>
-          <div>There are <span id="daysLeftThisMonth"></span> <span>days</span> left this month</div>
-          <div>There are <span id="daysLeftThisYear"></span> <span>days</span> left this year</div>
+          <div>You are <span id="age"></span> <span>years</span> old.</div>
+          <div>You have <span id="yearsToLive"></span> <span>years</span> to live.</div>
+          <div>There are <span id="hoursLeftToday"></span> <span>waking hours</span> left today.</div>
+          <div>There are <span id="daysLeftThisMonth"></span> <span>days</span> left this month.</div>
+          <div>There are <span id="daysLeftThisYear"></span> <span>days</span> left this year.</div>
           <div id="githubRepos"></div>
         </div>
 

@@ -12,7 +12,16 @@ var year = 31558464000, // Milliseconds in a year
     nameElement = document.getElementById("name"),
     currentDateElement = document.getElementById("currentDate"),
     currentTimeElement = document.getElementById("currentTime"),
-    yearsToLive = document.getElementById("yearsToLive");
+    yearsToLive = document.getElementById("yearsToLive"),
+    changeSettings = document.getElementById("changeSettings"),
+    nickNameVal = document.getElementById("nickName"),
+    sleepingTimeHourVal = document.getElementById("sleepingTimeHour"),
+    sleepingTimeMinutesVal = document.getElementById("sleepingTimeMinutes"),
+    yearOfBirthVal = document.getElementById("yearOfBirth"),
+    monthOfBirthVal = document.getElementById("monthOfBirth"),
+    dayOfBirthVal = document.getElementById("dayOfBirth"),
+    githubUsernameVal = document.getElementById("githubUsername"),
+    form = document.querySelector('form');
 
 // Current date
 function currentDate(nowNew){
@@ -132,3 +141,38 @@ setInterval(function getStuff(){
 if(githubUsername.length >= 2) {
   getRepoCount(githubUsername);
 }
+
+// Save variables for user to edit
+function showHideSettings() {
+  if (settings.style.display !== "none") {
+    settings.style.display = "none";
+  }
+  else {
+    settings.style.display = "block";
+  }
+}
+(function(){
+  function valueChanged(newValue){
+    nickNameVal.innerText = newValue;
+  }
+  form.addEventListener('submit', function(evt){
+    var value = nickNameVal.value;
+    evt.preventDefault();
+
+    chrome.storage.sync.set({
+      nickName: value
+    }, function(){
+      console.log("Value set:" + value);
+    });
+  });
+
+  chrome.storage.onChanged.addListener(function(changes, namespace){
+    if(changes.nickName){
+      valueChanged(changes.nickName.newValue);
+    }
+  });
+
+  chrome.storage.sync.get("nickName", function(result){
+    valueChanged(result.nickName);
+  });
+})();
