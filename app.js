@@ -14,6 +14,8 @@ var year = 31558464000, // Milliseconds in a year
     currentTimeElement = document.getElementById("currentTime"),
     yearsToLive = document.getElementById("yearsToLive"),
     changeSettings = document.getElementById("changeSettings"),
+    settings = document.getElementById("settings"),
+    settingsWrapper = document.getElementById("settingsWrapper"),
     nickNameVal = document.getElementById("nickName"),
     sleepingTimeHourVal = document.getElementById("sleepingTimeHour"),
     sleepingTimeMinutesVal = document.getElementById("sleepingTimeMinutes"),
@@ -44,7 +46,7 @@ function currentDay(nowNew) {
   currentDate = nowNew.getDate(),
   currentMonth = nowNew.getMonth(),
   currentYear = nowNew.getFullYear();
-  return dayNames[currentDay] + ', ' + currentDate + " " + monthNames[currentMonth]
+  return '<span>' + dayNames[currentDay] + '</span>, ' + currentDate + " " + monthNames[currentMonth]
   + " " + currentYear;
 }
 
@@ -65,7 +67,7 @@ function calculateLifeExpectancy(age) {
 // Calculate hours left today
 function hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew) {
   var timeLeftToday = (new Date(nowNew.getFullYear(), nowNew.getMonth(), nowNew.getDate(), sleepingTimeHours + 12, sleepingTimeMinutes)).getTime() - nowNew.getTime();
-  var timeLeftString = (timeLeftToday / hour).toString().substring(0, 6);
+  var timeLeftString = (timeLeftToday / hour).toString().substring(0, 7);
   timeLeftString = timeLeftString < 0 ? 0 : timeLeftString;
   return timeLeftString;
 }
@@ -73,13 +75,13 @@ function hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew) {
 // Calculate days left this month
 function daysLeftThisMonthFunc(nowNew) {
   var timeLeftThisMonth = (new Date(nowNew.getFullYear(), nowNew.getMonth() + 1, 0)) - nowNew.getTime();
-  return (timeLeftThisMonth / day).toString().substring(0, 6);
+  return (timeLeftThisMonth / day).toString().substring(0, 7);
 }
 
 // Calculate days left this year
 function daysLeftThisYearFunc(nowNew) {
   var timeLeftThisYear = (new Date(nowNew.getFullYear() + 1, 0, 0).getTime()) - nowNew.getTime();
-  return (timeLeftThisYear / day).toString().substring(0, 6);
+  return (timeLeftThisYear / day).toString().substring(0, 7);
 }
 
 // Get total GitHub repos
@@ -119,8 +121,10 @@ getJSON('quotes.json').then(function(data) {
 });
 
 // Change name of h1 tag
-if(nickName.length >= 1) {
-  nameElement.innerHTML = ', ' + nickName;
+function changeNick(){
+  if(nickName.length >= 1) {
+    nameElement.innerHTML = ', ' + nickName;
+  }
 }
 
 
@@ -143,17 +147,25 @@ if(githubUsername.length >= 2) {
 }
 
 // Save variables for user to edit
-function showHideSettings() {
-  if (settings.style.display !== "none") {
-    settings.style.display = "none";
-  }
-  else {
-    settings.style.display = "block";
-  }
-}
 (function(){
+
+  changeSettings.addEventListener("click", function showHideSettings(){
+    if (settings.style.opacity !== "0") {
+      settings.style.opacity = "0";
+      settings.style.visibility = "hidden";
+      settingsWrapper.setAttribute("class", "animateFast zoomOut");
+    }
+    else {
+      settings.style.opacity = "1";
+      settings.style.visibility = "visible";
+      settingsWrapper.setAttribute("class", "animateFast zoomIn");
+    }
+  });
+
   function valueChanged(newValue){
-    nickNameVal.innerText = newValue;
+    nickName = newValue;
+    nameElement.value = newValue;
+    changeNick();
   }
   form.addEventListener('submit', function(evt){
     var value = nickNameVal.value;
@@ -163,6 +175,7 @@ function showHideSettings() {
       nickName: value
     }, function(){
       console.log("Value set:" + value);
+      valueChanged(value);
     });
   });
 

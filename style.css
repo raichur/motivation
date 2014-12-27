@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,400);
 
 // Animations
 .animated {
@@ -52,7 +52,7 @@ html, body {
   user-select: none;
 }
 body {
-  font-family: Avenir, Open Sans;
+  font-family: Roboto, Verdana, sans-serif;
   background: #1d1d1d;
   color: #f9f9f9;
   max-height: 100%;
@@ -64,19 +64,25 @@ body {
   margin-top: 60px;
 }
 .content h1 {
-  font-size: 4rem;
-  line-height: 4.2rem;
+  font-size: 5rem;
+  line-height: 5.2rem;
   margin-bottom: 30px;
+  font-weight: 100;
   color: #70bee0;
 }
 
 // Div styling
 #currentTime {
-  font-size: 3rem;
+  font-weight: 100;
+  font-size: 20px;
 }
 #currentDate {
+  font-weight: 100;
   font-size: 1.7rem;
   margin-bottom: 40px;
+}
+#currentDate  span {
+  font-weight: 400;
 }
 .quote {
   margin: 0;
@@ -88,30 +94,131 @@ body {
 .quote p:first-child {
   font-size: 1.6rem;
   font-style: italic;
+  font-weight: 100;
   line-height: 1.8rem;
 }
 .quote p:nth-child(2) {
   font-size: 1.3rem;
-  font-weight: 500;
-
+  font-weight: 400;
+  opacity: .5;
 }
 .dynamicText {
   font-size: 2rem;
+  font-weight: 100;
 }
 .dynamicText span {
-  font-weight: 600;
+  font-weight: 400;
   color: #70bee0;
 }
 #changeSettings {
   position: absolute;
   bottom: 10px;
-  left: 95%;
+  left: 96%;
   float: right;
-  color: #70bee0;
-  font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  z-index: 3;
+  cursor: pointer;
+  opacity: .4;
+  transition: .3s all ease;
+}
+#changeSettings:hover {
+  opacity: 1;
+  fill: #70bee0;
 }
 #settings {
-  display: none;
-  bottom: 30px;
-  left: 95%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(112, 190, 224, 0.98);
+  opacity: 0;
+  transition: .2s all ease;
+  z-index: 2;
+  text-align: center;
+  margin: 0 auto;
+}
+#settings h1 {
+  font-size: 4rem;
+  font-weight: 100;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+#settings input {
+  transition: all ease .2s;
+  margin: 0 auto;
+  width: 40%;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 4px;
+}
+#settings label {
+  text-align: left;
+  margin-left: 30%;
+  display: block;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+#settings label[for="yearOfBirth"], #settings label[for="monthOfBirth"], #settings label[for="dayOfBirth"] {
+  display: inline-block;
+  float: left;
+  margin: 0;
+}
+#settings label[for="yearOfBirth"] {
+  margin-left: 30%;
+  width: 14%;
+}
+#settings label[for="monthOfBirth"], #settings label[for="dayOfBirth"] {
+  width: 12.5%;
+}
+#settings #yearOfBirth {
+  margin-top: 0;
+  margin-bottom: 0;
+   width: 14%;
+  display: inline-block;
+}
+#settings #monthOfBirth, #settings #dayOfBirth {
+  margin-top: 30px;
+  margin-bottom: 0px;
+  width: 12.5%;
+  display: inline-block;
+}
+#settings #monthOfBirth {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.birthWrapper {
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 5px;
+  position: relative;
+
+}
+.birthLabels {
+  display: inline;
+}
+#settings input[type="submit"] {
+  cursor: pointer;
+}
+#settings input:focus {
+  outline: 0;
+  background: #ededed;
+  color: #1d1d1d;
+}
+#settings input[type="submit"] {
+  background: #425057;
+  color: #f9f9f9;
+}
+#settings input[type="submit"]:hover {
+  outline: 0;
+  background: #1d1d1d;
+  color: #70bee0;
 }

@@ -2,46 +2,61 @@
 
   <head>
     <title>Motivation</title>
+    <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body class="animated fadeIn">
-      <div id="settings">
-        <form name="settingsForm">
-            <input type="text" id="nickName" placeholder="First/Nick name">
-            <input type="number" id="sleepingTimeHour" placeholder="Sleeping time (hour)" min="1" max="12" maxlength="2">
-            <input type="number" id="sleepingTimeMinutes" placeholder="Sleeping time (minutes)" min="1" max="59" maxlength="2">
-            <input type="number" id="yearOfBirth" placeholder="Year of birth" maxlength="4">
-            <input type="number" id="monthOfBirth" placeholder="Month of birth" maxlength="2" min="1" max="12">
-            <input type="number" id="dayOfBirth" placeholder="Day of birth" maxlength="2" min="1" max="31">
-            <input type="text" id="githubUsername" placeholder="GitHub username">
+      <div id="settings" style="opacity: 0; visibility: hidden;">
+        <div id="settingsWrapper">
+          <h1 id="settingsH1">Settings</h1>
+          <form name="settingsForm" id="settingsForm">
+            <label for="nickName">Nickname</label>
+            <input type="text" name="nickName" id="nickName" placeholder="Eg: Josh">
+            <label for="sleepingTimeHour">Sleeping time (hour)</label>
+            <input type="number" name="sleepingTimeHour" id="sleepingTimeHour" placeholder='Eg: For 9:30pm enter "9"' min="1" max="12" maxlength="2">
+            <label for="sleepingTimeMinutes">Sleeping time (minutes)</label>
+            <input type="number" name="sleepingTimeMinutes" id="sleepingTimeMinutes" placeholder='Eg: For 9:30pm enter "30"' min="1" max="59" maxlength="2">
+            <div class="birthLabels">
+              <label for="yearOfBirth">Year of birth</label>
+              <label for="monthOfBirth">Month of birth</label>
+              <label for="dayOfBirth">Day of birth</label>
+            </div>
+            <div class="birthWrapper">
+              <input type="number" name="yearOfBirth" id="yearOfBirth" placeholder="Eg: 1997" maxlength="4">
+              <input type="number" name="monthOfBirth" id="monthOfBirth" placeholder="Eg: 8" maxlength="2" min="1" max="12">
+              <input type="number" name="dayOfBirth" id="dayOfBirth" placeholder="Eg: 31" maxlength="2" min="1" max="31">
+            </div>
+            <label for="githubUsername">GitHub username</label>
+            <input type="text" name="githubUsername" id="githubUsername" placeholder="Eg: raichur">
             <input type="submit" value="Submit">
-        </form>
+          </form>
+        </div>
       </div>
 
-      <a href="javascript:void(0)" id="changeSettings" onclick="showHideSettings();">Settings</a>
+      <img src="settings.svg" onerror="this.src='settings.png'" id="changeSettings"/>
 
       <div class="content">
 
         <h1>Get stuff done<span id="name"></span>.</h1>
 
         <div class="dateTimeWrapper">
-          <div id="currentTime"></div>
+          <div id="currentTime" style="font-size: 2rem;"></div>
           <div id="currentDate"></div>
         </div>
 
         <div class="dynamicText">
           <div>You are <span id="age"></span> <span>years</span> old.</div>
           <div>You have <span id="yearsToLive"></span> <span>years</span> to live.</div>
-          <div>There are <span id="hoursLeftToday"></span> <span>waking hours</span> left today.</div>
-          <div>There are <span id="daysLeftThisMonth"></span> <span>days</span> left this month.</div>
-          <div>There are <span id="daysLeftThisYear"></span> <span>days</span> left this year.</div>
+          <div>You have <span id="hoursLeftToday"></span> <span>waking hours</span> left today.</div>
+          <div>You have <span id="daysLeftThisMonth"></span> <span>days</span> left this month.</div>
+          <div>You have <span id="daysLeftThisYear"></span> <span>days</span> left this year.</div>
           <div id="githubRepos"></div>
         </div>
 
         <div class="quote">
           <p>&ldquo;<span id="quoteText"></span>&rdquo;</p>
-          <p id="quoteAuthor"></p>
+          <p>&#8213; <span id="quoteAuthor"></span></p>
         </div>
 
       </div>
