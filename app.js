@@ -164,7 +164,6 @@ if(githubUsername.length >= 2) {
 
   function valueChanged(newValue){
     nickName = newValue;
-    nameElement.value = newValue;
     changeNick();
   }
   form.addEventListener('submit', function(evt){
