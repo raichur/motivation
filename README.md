@@ -3,12 +3,6 @@
 A simple Google Chrome Extension that replaces the "New Tab" page. Note that the life expectancy is not accurate, but it reminds me that time is actually being used up.
 [View it live](http://joshuaraichur.com/motivation) on my website.
 
-### TODO:
-
-1. Save settings locally with Chrome Storage APIs.
-2. Styling.
-3. Upload to Chrome Web Store.
-
 ### Setup:
 
 1. Run `git clone https://github.com/raichur/motivation.git`

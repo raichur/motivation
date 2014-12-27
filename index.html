@@ -7,35 +7,6 @@
   </head>
 
   <body class="animated fadeIn">
-      <div id="settings" style="opacity: 0; visibility: hidden;">
-        <div id="settingsWrapper">
-          <h1 id="settingsH1">Settings</h1>
-          <form name="settingsForm" id="settingsForm">
-            <label for="nickName">Nickname</label>
-            <input type="text" name="nickName" id="nickName" placeholder="Eg: Josh">
-            <label for="sleepingTimeHour">Sleeping time (hour)</label>
-            <input type="number" name="sleepingTimeHour" id="sleepingTimeHour" placeholder='Eg: For 9:30pm enter "9"' min="1" max="12" maxlength="2">
-            <label for="sleepingTimeMinutes">Sleeping time (minutes)</label>
-            <input type="number" name="sleepingTimeMinutes" id="sleepingTimeMinutes" placeholder='Eg: For 9:30pm enter "30"' min="1" max="59" maxlength="2">
-            <div class="birthLabels">
-              <label for="yearOfBirth">Year of birth</label>
-              <label for="monthOfBirth">Month of birth</label>
-              <label for="dayOfBirth">Day of birth</label>
-            </div>
-            <div class="birthWrapper">
-              <input type="number" name="yearOfBirth" id="yearOfBirth" placeholder="Eg: 1997" maxlength="4">
-              <input type="number" name="monthOfBirth" id="monthOfBirth" placeholder="Eg: 8" maxlength="2" min="1" max="12">
-              <input type="number" name="dayOfBirth" id="dayOfBirth" placeholder="Eg: 31" maxlength="2" min="1" max="31">
-            </div>
-            <label for="githubUsername">GitHub username</label>
-            <input type="text" name="githubUsername" id="githubUsername" placeholder="Eg: raichur">
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-      </div>
-
-      <img src="settings.svg" onerror="this.src='settings.png'" id="changeSettings"/>
-
       <div class="content">
 
         <h1>Get stuff done<span id="name"></span>.</h1>

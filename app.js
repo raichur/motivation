@@ -121,11 +121,9 @@ getJSON('quotes.json').then(function(data) {
 });
 
 // Change name of h1 tag
-function changeNick(){
   if(nickName.length >= 1) {
     nameElement.innerHTML = ', ' + nickName;
   }
-}
 
 
 // setInterval and simple DOM manipulation stuff
@@ -145,46 +143,3 @@ setInterval(function getStuff(){
 if(githubUsername.length >= 2) {
   getRepoCount(githubUsername);
 }
-
-// Save variables for user to edit
-(function(){
-
-  changeSettings.addEventListener("click", function showHideSettings(){
-    if (settings.style.opacity !== "0") {
-      settings.style.opacity = "0";
-      settings.style.visibility = "hidden";
-      settingsWrapper.setAttribute("class", "animateFast zoomOut");
-    }
-    else {
-      settings.style.opacity = "1";
-      settings.style.visibility = "visible";
-      settingsWrapper.setAttribute("class", "animateFast zoomIn");
-    }
-  });
-
-  function valueChanged(newValue){
-    nickName = newValue;
-    changeNick();
-  }
-  form.addEventListener('submit', function(evt){
-    var value = nickNameVal.value;
-    evt.preventDefault();
-
-    chrome.storage.sync.set({
-      nickName: value
-    }, function(){
-      console.log("Value set:" + value);
-      valueChanged(value);
-    });
-  });
-
-  chrome.storage.onChanged.addListener(function(changes, namespace){
-    if(changes.nickName){
-      valueChanged(changes.nickName.newValue);
-    }
-  });
-
-  chrome.storage.sync.get("nickName", function(result){
-    valueChanged(result.nickName);
-  });
-})();
