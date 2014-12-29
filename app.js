@@ -59,7 +59,7 @@ function calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now) {
 }
 
 function calculateLifeExpectancy(age) {
-  var expectancy = (71 - age).toString().substring(0, 11); // Life expectancy at birth (71.0 years world average) - http://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy
+  var expectancy = (82 - age).toString().substring(0, 11); // Average of 30k days (82 years)
   expectancy = expectancy < 0 ? 0 : expectancy;
   return expectancy;
 }
