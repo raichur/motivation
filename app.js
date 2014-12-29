@@ -4,6 +4,7 @@ var year = 31558464000, // Milliseconds in a year
     hour = 3600000, // Milliseconds in an hour
     ageElement = document.getElementById("age"),
     hoursLeftTodayElement = document.getElementById("hoursLeftToday"),
+    daysLeftThisWeek = document.getElementById("daysLeftThisWeek"),
     daysLeftThisMonth = document.getElementById("daysLeftThisMonth"),
     daysLeftThisYear = document.getElementById("daysLeftThisYear"),
     githubRepos = document.getElementById("githubRepos"),
@@ -72,6 +73,10 @@ function hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew) {
   return timeLeftString;
 }
 
+// Calculate days left this week
+function daysLeftThisWeekFunc(nowNew) {
+  return 6 - new Date(nowNew.getDay());
+}
 // Calculate days left this month
 function daysLeftThisMonthFunc(nowNew) {
   var timeLeftThisMonth = (new Date(nowNew.getFullYear(), nowNew.getMonth() + 1, 0)) - nowNew.getTime();
@@ -133,6 +138,7 @@ setInterval(function getStuff(){
   var age = calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now);
   ageElement.innerHTML = age;
   hoursLeftTodayElement.innerHTML = hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew);
+  daysLeftThisWeek.innerHTML = daysLeftThisWeekFunc(nowNew);
   daysLeftThisMonth.innerHTML = daysLeftThisMonthFunc(nowNew);
   daysLeftThisYear.innerHTML = daysLeftThisYearFunc(nowNew);
   currentDateElement.innerHTML = currentDay(nowNew);
