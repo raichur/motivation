@@ -79,13 +79,13 @@ function daysLeftThisWeekFunc(nowNew) {
 }
 // Calculate days left this month
 function daysLeftThisMonthFunc(nowNew) {
-  var timeLeftThisMonth = (new Date(nowNew.getFullYear(), nowNew.getMonth() + 1, 0)) - nowNew.getTime();
+  var timeLeftThisMonth = (new Date(nowNew.getFullYear(), nowNew.getMonth() + 1, 1)) - nowNew.getTime();
   return (timeLeftThisMonth / day).toString().substring(0, 7);
 }
 
 // Calculate days left this year
 function daysLeftThisYearFunc(nowNew) {
-  var timeLeftThisYear = (new Date(nowNew.getFullYear() + 1, 0, 0).getTime()) - nowNew.getTime();
+  var timeLeftThisYear = (new Date(nowNew.getFullYear() + 1, 0, 1).getTime()) - nowNew.getTime();
   return (timeLeftThisYear / day).toString().substring(0, 7);
 }
 
