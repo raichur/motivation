@@ -73,10 +73,6 @@ function hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew) {
   return timeLeftString;
 }
 
-// Calculate days left this week
-function daysLeftThisWeekFunc(nowNew) {
-  return 6 - new Date(nowNew.getDay());
-}
 // Calculate days left this month
 function daysLeftThisMonthFunc(nowNew) {
   var timeLeftThisMonth = (new Date(nowNew.getFullYear(), nowNew.getMonth() + 1, 1)) - nowNew.getTime();
@@ -117,7 +113,7 @@ function getJSON(url) {
     };
     xhr.send();
   });
-};
+}
 
 getJSON('quotes.json').then(function(data) {
   var randomQuote = data.quotes[Math.floor(Math.random()*data.quotes.length)];
@@ -134,11 +130,10 @@ getJSON('quotes.json').then(function(data) {
 // setInterval and simple DOM manipulation stuff
 setInterval(function getStuff(){
   var now = Date.now(),
-  nowNew = new Date;
+  nowNew = new Date();
   var age = calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now);
   ageElement.innerHTML = age;
   hoursLeftTodayElement.innerHTML = hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew);
-  daysLeftThisWeek.innerHTML = daysLeftThisWeekFunc(nowNew);
   daysLeftThisMonth.innerHTML = daysLeftThisMonthFunc(nowNew);
   daysLeftThisYear.innerHTML = daysLeftThisYearFunc(nowNew);
   currentDateElement.innerHTML = currentDay(nowNew);
