@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Roboto:100,400);
 
 // Animations
 .animated {
@@ -57,7 +56,7 @@ html, body {
   user-select: none;
 }
 body {
-  font-family: Roboto, Verdana, sans-serif;
+  font-family: Avenir Next, Helvetica Neue, Helvetica, Arial;
   background: #1d1d1d;
   color: #f9f9f9;
   max-height: 100%;
