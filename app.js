@@ -47,8 +47,7 @@ function currentDay(nowNew) {
   currentDate = nowNew.getDate(),
   currentMonth = nowNew.getMonth(),
   currentYear = nowNew.getFullYear();
-  return '<span>' + dayNames[currentDay] + '</span>, ' + currentDate + " " + monthNames[currentMonth]
-  + " " + currentYear;
+  return '<span>' + dayNames[currentDay] + '</span>, ' + currentDate + " " + monthNames[currentMonth] + " " + currentYear;
 }
 
 // Calculate age
@@ -120,12 +119,6 @@ getJSON('quotes.json').then(function(data) {
   quoteText.innerHTML = randomQuote.quote;
   quoteAuthor.innerHTML = randomQuote.author;
 });
-
-// Change name of h1 tag
-  if(nickName.length >= 1) {
-    nameElement.innerHTML = ', ' + nickName;
-  }
-
 
 // setInterval and simple DOM manipulation stuff
 setInterval(function getStuff(){
