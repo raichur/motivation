@@ -1,5 +1,26 @@
 @charset "UTF-8";
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('fonts/SourceSansPro-Regular.otf');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('fonts/SourceSansPro-It.otf');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('fonts/SourceSansPro-Semibold.otf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('fonts/SourceSansPro-SemiboldIt.otf');
+  font-weight: bold;
+  font-style: italic;
+}
+
 // Animations
 .animated {
   -webkit-animation-duration: .85s;
@@ -56,7 +77,7 @@ html, body {
   user-select: none;
 }
 body {
-  font-family: Avenir Next, Helvetica Neue, Helvetica, Arial;
+  font-family: Avenir Next, Source Sans Pro, Helvetica Neue, Arial;
   background: #1d1d1d;
   color: #f9f9f9;
   max-height: 100%;
