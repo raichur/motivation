@@ -66,7 +66,7 @@ html, body {
   padding: 0;
   text-align: center;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   -webkit-touch-callout: none;
@@ -85,7 +85,7 @@ body {
 .content {
   margin: 0 auto;
   text-align: left;
-  width: 800px;
+  width: 50%;
   margin-top: 50px;
 }
 .content h1 {
@@ -134,4 +134,32 @@ body {
 .dynamicText span {
   font-weight: 400;
   color: #70bee0;
+}
+@media screen and (max-width: 1000px) {
+  .content {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .content h1 {
+    font-size: 6em;
+  }
+  #currentDate {
+    font-size: 1.5em;
+  }
+  #currentTime {
+    font-size: 3em !important;
+  }
+  .dynamicText {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .content h1 {
+    font-size: 5em;
+    line-height: 1.2em;
+  }
+  .dynamicText {
+    font-size: 1.6rem;
+  }
 }
