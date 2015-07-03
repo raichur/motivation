@@ -156,8 +156,11 @@ body {
 }
 @media screen and (max-width: 700px) {
   .content h1 {
-    font-size: 5em;
+    font-size: 3em;
     line-height: 1.2em;
+  }
+  .content {
+    margin-bottom: 50px;
   }
   .dynamicText {
     font-size: 1.6rem;
