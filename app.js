@@ -14,6 +14,7 @@ var year = 31558464000, // Milliseconds in a year
     currentDateElement = document.getElementById("currentDate"),
     currentTimeElement = document.getElementById("currentTime"),
     yearsToLive = document.getElementById("yearsToLive"),
+    daysToLive = document.getElementById("daysToLive"),
     changeSettings = document.getElementById("changeSettings"),
     settings = document.getElementById("settings"),
     settingsWrapper = document.getElementById("settingsWrapper"),
@@ -132,6 +133,7 @@ setInterval(function getStuff(){
   currentDateElement.innerHTML = currentDay(nowNew);
   currentTimeElement.innerHTML = currentDate(nowNew);
   yearsToLive.innerHTML = calculateLifeExpectancy(age);
+  daysToLive.innerHTML = calculateLifeExpectancy(age)*365.25;
 }, 100);
 
 if(githubUsername.length >= 2) {
