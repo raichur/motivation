@@ -7,7 +7,6 @@ var year = 31558464000, // Milliseconds in a year
     daysLeftThisWeek = document.getElementById("daysLeftThisWeek"),
     daysLeftThisMonth = document.getElementById("daysLeftThisMonth"),
     daysLeftThisYear = document.getElementById("daysLeftThisYear"),
-    githubRepos = document.getElementById("githubRepos"),
     quoteText = document.getElementById("quoteText"),
     quoteAuthor = document.getElementById("quoteAuthor"),
     nameElement = document.getElementById("name"),
@@ -24,7 +23,6 @@ var year = 31558464000, // Milliseconds in a year
     yearOfBirthVal = document.getElementById("yearOfBirth"),
     monthOfBirthVal = document.getElementById("monthOfBirth"),
     dayOfBirthVal = document.getElementById("dayOfBirth"),
-    githubUsernameVal = document.getElementById("githubUsername"),
     form = document.querySelector('form');
 
 // Current date
@@ -85,18 +83,6 @@ function daysLeftThisYearFunc(nowNew) {
   return (timeLeftThisYear / day).toString().substring(0, 7);
 }
 
-// Get total GitHub repos
-function getRepoCount(githubUsername) {
-  function printRepoCount() {
-    var responseObj = JSON.parse(this.responseText);
-    githubRepos.innerHTML = "You have <span>" + responseObj.public_repos + " repos</span> on GitHub.";
-  }
-  var request = new XMLHttpRequest();
-  request.onload = printRepoCount;
-  request.open('get', 'https://api.github.com/users/' + githubUsername, true);
-  request.send();
-}
-
 // Get random quote from "quotes.json" file
 function getJSON(url) {
   return new Promise(function(resolve, reject) {
@@ -141,7 +127,3 @@ setInterval(function getStuff(){
   yearsToLive.innerHTML = calculateLifeExpectancy(age);
   daysToLive.innerHTML = addComma(calculateLifeExpectancy(age)*365.25).toString().substring(0, 12);
 }, 100);
-
-if(githubUsername.length >= 2) {
-  getRepoCount(githubUsername);
-}
