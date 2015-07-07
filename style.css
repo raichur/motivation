@@ -82,19 +82,35 @@ body {
   color: #f9f9f9;
   max-height: 100%;
 }
+.dateTimeWrapper {
+  margin-bottom: 50px;
+}
 .content {
   margin: 0 auto;
-  text-align: left;
-  width: 50%;
-  margin-top: 50px;
+  text-align: center;
+  width: 94%;
+  margin-top: 80px;
 }
 .content h1 {
-  font-size: 4rem;
-  line-height: 4.2rem;
+  font-size: 14rem;
+  line-height: 13.5rem;
   margin-bottom: 40px;
   font-weight: 600;
+  letter-spacing: -.035em;
   color: #70bee0;
 }
+.content h1 span:nth-child(1) {
+  margin-left: -13px;
+  margin-right: -6px;
+}
+.two_column {
+  width: calc(50% - 40px);
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  margin-bottom: 40px;
+}
+
 
 // Div styling
 #currentTime {

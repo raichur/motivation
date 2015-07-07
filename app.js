@@ -121,6 +121,12 @@ getJSON('quotes.json').then(function(data) {
   quoteAuthor.innerHTML = randomQuote.author;
 });
 
+function addComma(number) {
+  var splitByDot = number.toString().split('.'); // Split (Do not need commas in decimal places)
+  splitByDot[0] = splitByDot[0].replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Fancy regex
+  return splitByDot.join("."); // Reconnect
+}
+
 // setInterval and simple DOM manipulation stuff
 setInterval(function getStuff(){
   var now = Date.now(),
@@ -133,7 +139,7 @@ setInterval(function getStuff(){
   currentDateElement.innerHTML = currentDay(nowNew);
   currentTimeElement.innerHTML = currentDate(nowNew);
   yearsToLive.innerHTML = calculateLifeExpectancy(age);
-  daysToLive.innerHTML = calculateLifeExpectancy(age)*365.25;
+  daysToLive.innerHTML = addComma(calculateLifeExpectancy(age)*365.25).toString().substring(0, 12);
 }, 100);
 
 if(githubUsername.length >= 2) {
