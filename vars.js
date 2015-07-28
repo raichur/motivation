@@ -5,3 +5,5 @@ sleepingTimeMinutes = 00, // The minutes remaining for the time you sleep. In my
 yearOfBirth = 1997, // Year of birth
 monthOfBirth = 8, // Month of birth
 dayOfBirth = 31; // Day of birth
+
+//Josh, can you add the number of seconds left for a day to end also?? //
