@@ -1,6 +1,6 @@
 ## Motivation
 
-A simple Google Chrome Extension that replaces the "New Tab" page. Note that the life expectancy is not accurate, but it reminds me that time is actually being used up.
+A simple Google Chrome extension that replaces the “New Tab” page. Note that the life expectancy is not accurate, but it reminds me that time is actually being used up.
 
 ### Setup:
 

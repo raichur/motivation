@@ -36,7 +36,7 @@ main {
   width: 100%;
 }
 section {
-  margin: 30px;
+  margin: 25px;
 }
 #particles {
   height: 100%;
@@ -61,10 +61,11 @@ section:nth-child(2) {
 
 /* Time relative stuff (third flex item) */
 section:nth-child(3) {
-  font-size: 2.4em;
+  font-size: 2.1em;
 }
 section:nth-child(3) span {
   color: #70bee0;
+  font-size: 1.4em;
 }
 
 /* Quote (fourth flex item) */
