@@ -1,0 +1,142 @@
+@import url(http://fonts.googleapis.com/css?family=Karla:400,700);
+
+/* Basic */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+body {
+  font-family: Karla;
+  background: #1d1d1d;
+  color: #f9f9f9;
+  cursor: default;
+}
+
+/* Flexbox */
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+section {
+  margin: 30px;
+}
+#particles {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+}
+
+/* Header (first flex item) */
+.heading {
+  font-size: 12em;
+  color: #70bee0;
+  letter-spacing: -0.06em;
+  line-height: 0.8em;
+}
+
+/* Time (second flex item) */
+section:nth-child(2) {
+  font-size: 2.2em;
+}
+
+/* Time relative stuff (third flex item) */
+section:nth-child(3) {
+  font-size: 2.4em;
+}
+section:nth-child(3) span {
+  color: #70bee0;
+}
+
+/* Quote (fourth flex item) */
+section:nth-child(4) p {
+  font-size: 2em;
+  font-style: italic;
+}
+section:nth-child(4) p:nth-child(2) {
+  color: #898989;
+}
+
+/* Animations */
+@-webkit-keyframes fadeInUp {
+  0% {
+		opacity:0;
+		-webkit-transform:translate3d(0,20px,0);
+		transform:translate3d(0,20px,0);
+	}
+	100% {
+		opacity:1;
+		-webkit-transform:none;
+		transform:none;
+	}
+}
+
+@keyframes fadeInUp {
+  0% {
+		opacity:0;
+		-webkit-transform:translate3d(0,20px,0);
+		transform:translate3d(0,20px,0);
+	}
+	100% {
+		opacity:1;
+		-webkit-transform:none;
+		transform:none;
+	}
+}
+section {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+section:first-child {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+section:nth-child(2) {
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+section:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+section:nth-child(4) {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+
+/* Media queries */
+@media screen and (max-width: 1000px) {
+  .heading {
+    font-size: 8em;
+  }
+}
+@media screen and (max-width: 700px) {
+  .heading {
+    font-size: 6em;
+  }
+  section:nth-child(3) {
+    font-size: 1.7em;
+  }
+  section:nth-child(4) p {
+    font-size: 1.5em;
+  }
+}

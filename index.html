@@ -1,69 +1,43 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://joshuaraichur.com/motivation/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://joshuaraichur.com/motivation/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://joshuaraichur.com/motivation/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://joshuaraichur.com/motivation/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="http://joshuaraichur.com/motivation/apple-touch-icon-60x60.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://joshuaraichur.com/motivation/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://joshuaraichur.com/motivation/apple-touch-icon-76x76.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://joshuaraichur.com/motivation/apple-touch-icon-152x152.png" />
-  <link rel="icon" type="image/png" href="http://joshuaraichur.com/motivation/favicon-196x196.png" sizes="196x196" />
-  <link rel="icon" type="image/png" href="http://joshuaraichur.com/motivation/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/png" href="http://joshuaraichur.com/motivation/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="http://joshuaraichur.com/motivation/favicon-16x16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="http://joshuaraichur.com/motivation/favicon-128.png" sizes="128x128" />
-  <meta name="application-name" content="Motivation"/>
-  <meta name="msapplication-TileColor" content="#1D1D1D" />
-  <meta name="msapplication-TileImage" content="http://joshuaraichur.com/motivation/mstile-144x144.png" />
-  <meta name="msapplication-square70x70logo" content="http://joshuaraichur.com/motivation/mstile-70x70.png" />
-  <meta name="msapplication-square150x150logo" content="http://joshuaraichur.com/motivation/mstile-150x150.png" />
-  <meta name="msapplication-wide310x150logo" content="http://joshuaraichur.com/motivation/mstile-310x150.png" />
-  <meta name="msapplication-square310x310logo" content="http://joshuaraichur.com/motivation/mstile-310x310.png" />
-
   <meta name="theme-color" content="#1d1d1d">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Motivation</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="animated fadeIn">
-  <div class="content">
+<body class="content">
 
-    <h1>W<span class="oKern">o</span>rk <b>ha<span class="rKern">r</span>d<span class="eKern">e</span>r</b><span class="dotKern">.</span></h1>
-
-    <div class="dateTimeWrapper">
-      <div id="currentTime" style="font-size: 3rem;"></div>
-      <div id="currentDate"></div>
+  <div id="particles"></div>
+  <main>
+    <div class="wrapper">
+      <section>
+        <h1 class="heading">Work <b>harder</b></h1>
+      </section>
+      <section>
+        <p id="currentDate"></p>
+        <h2 id="currentTime"></h2>
+      </section>
+      <section>
+        <p>You are <span id="age"></span> <span>years</span> old.</p>
+        <p>You have <span id="yearsToLive"></span> <span>years</span> to live.</p>
+        <p>You have <span id="daysToLive"></span> <span>days</span> to live.</p>
+        <p>You have <span id="hoursLeftToday"></span> <span>hours</span> left today.</p>
+      </section>
+      <section>
+        <p>&ldquo;<span id="quoteText"></span>&rdquo;</p>
+        <p>&#8213; <span id="quoteAuthor"></span></p>
+      </section>
     </div>
+  </main>
 
-    <div class="dynamicText">
-      <div class="two_column">
-        <div>You are <span id="age"></span> <span>years</span> old.</div>
-        <div>You have <span id="yearsToLive"></span> <span>years</span> to live.</div>
-        <div>You have <span id="daysToLive"></span> <span>days</span> to live.</div>
-      </div>
-      <div class="two_column">
-        <div>You have <span id="hoursLeftToday"></span> <span>waking hours</span> left today.</div>
-        <div>There are <span id="daysLeftThisMonth"></span> <span>days</span> left this month.</div>
-        <div>There are <span id="daysLeftThisYear"></span> <span>days</span> left this year.</div>
-      </div>
-    </div>
-
-    <div class="quote">
-      <p>&ldquo;<span id="quoteText"></span>&rdquo;</p>
-      <p>&#8213; <span id="quoteAuthor"></span></p>
-    </div>
-
-  </div>
+  <script type="text/javascript" src="js/vars.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/particles.js"></script>
 
 </body>
-<script type="text/javascript" src="vars.js"></script>
-<script type="text/javascript" src="app.js"></script>
 
 </html>
