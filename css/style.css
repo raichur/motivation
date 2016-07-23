@@ -14,10 +14,11 @@ html, body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+  -webkit-font-smoothing: antialiased;
 }
 body {
-  font-family: Karla;
-  background: #1d1d1d;
+  font-family: 'BlinkMacSystemFont', Karla;
+  background: #171D25;
   color: #f9f9f9;
   cursor: default;
 }
@@ -32,11 +33,15 @@ main {
       -ms-transform: translate(-50%, -50%);
        -o-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 section {
-  margin: 25px;
+  margin: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15%;
+  padding-left: 15%;
 }
 #particles {
   height: 100%;
@@ -48,33 +53,26 @@ section {
 
 /* Header (first flex item) */
 .heading {
-  font-size: 10em;
+  font-size: 11em;
   color: #70bee0;
-  letter-spacing: -0.06em;
-  line-height: 0.8em;
 }
 
-/* Time (second flex item) */
-section:nth-child(2) {
-  font-size: 2.2em;
-}
-
-/* Time relative stuff (third flex item) */
-section:nth-child(3) {
+/* Time stuff */
+section p {
   font-size: 2.1em;
+  font-weight: 400;
+  color: #5F6F80;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.6em;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
-section:nth-child(3) span {
-  color: #70bee0;
-  font-size: 1.4em;
-}
-
-/* Quote (fourth flex item) */
-section:nth-child(4) p {
-  font-size: 2em;
-  font-style: italic;
-}
-section:nth-child(4) p:nth-child(2) {
-  color: #898989;
+section div {
+  color: #FFFFFF;
+  font-size: 2.5em;
+  letter-spacing: 0.2em;
+  font-weight: 600;
 }
 
 /* Animations */

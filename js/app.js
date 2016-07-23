@@ -1,5 +1,5 @@
 // Define variables
-var year = 31558464000, // Milliseconds in a year
+var year = 31536000000, // Milliseconds in a year
     day = 86400000, // Milliseconds in a day
     hour = 3600000, // Milliseconds in an hour
     ageElement = document.getElementById("age"),
@@ -20,6 +20,9 @@ var year = 31558464000, // Milliseconds in a year
 function currentDate(nowNew){
   var amOrPm = ' AM',
   hours = nowNew.getHours();
+  if(hours == "0") {
+    hours = 12;
+  }
   if(nowNew.getHours() >= 13){
     amOrPm = ' PM';
     hours = nowNew.getHours() - 12;
@@ -41,16 +44,17 @@ function currentDay(nowNew) {
 }
 
 // Calculate age
-function calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now) {
-  var myAge = now - (new Date(yearOfBirth, monthOfBirth, dayOfBirth));
-  var ageString = (myAge / year).toString().substring(0, 11);
-  ageString = ageString < 0 ? 0 : ageString;
-  return ageString;
+function calculateAge(birthday) {
+  var now = new Date,
+  duration = now - birthday,
+  years = duration / 31556900000;
+  var age = Number(years.toString().substring(0, 11)).toFixed(8);
+  return age;
 }
 
 // Calculate life expectancy based on average
 function calculateLifeExpectancy(age) {
-  var expectancy = (82 - age).toString().substring(0, 11); // Average of 30k days (82 years)
+  var expectancy = Number((82 - age).toString().substring(0, 11)).toFixed(8); // Average of 30k days (82 years)
   expectancy = expectancy < 0 ? 0 : expectancy;
   return expectancy;
 }
@@ -58,35 +62,10 @@ function calculateLifeExpectancy(age) {
 // Calculate hours left today
 function hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew) {
   var timeLeftToday = (new Date(nowNew.getFullYear(), nowNew.getMonth(), nowNew.getDate(), sleepingTimeHours + 12, sleepingTimeMinutes)).getTime() - nowNew.getTime();
-  var timeLeftString = (timeLeftToday / hour).toString().substring(0, 7);
+  var timeLeftString = Number((timeLeftToday / hour).toString().substring(0, 7)).toFixed(4);
   timeLeftString = timeLeftString < 0 ? 0 : timeLeftString;
   return timeLeftString;
 }
-
-// Get random quote from "quotes.json" file
-function getJSON(url) {
-  return new Promise(function(resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status == 200) {
-        resolve(xhr.response);
-      } else {
-        reject(status);
-      }
-    };
-    xhr.send();
-  });
-}
-
-// Get data from quotes json file
-getJSON('quotes.json').then(function(data) {
-  var randomQuote = data.quotes[Math.floor(Math.random()*data.quotes.length)];
-  quoteText.innerHTML = randomQuote.quote;
-  quoteAuthor.innerHTML = randomQuote.author;
-});
 
 function addComma(number) {
   var splitByDot = number.toString().split('.'); // Split (Do not need commas in decimal places)
@@ -98,7 +77,7 @@ function addComma(number) {
 setInterval(function getStuff(){
   var now = Date.now(),
   nowNew = new Date();
-  var age = calculateAge(yearOfBirth, monthOfBirth, dayOfBirth, now);
+  var age = calculateAge(new Date(dateOfBirth));
   ageElement.innerHTML = age;
   hoursLeftTodayElement.innerHTML = hoursLeftToday(sleepingTimeHours, sleepingTimeMinutes, nowNew);
   currentDateElement.innerHTML = currentDay(nowNew);
